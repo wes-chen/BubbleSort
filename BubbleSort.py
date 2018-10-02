@@ -1,4 +1,4 @@
-import sys
+import argparse
 
 def BubbleSort(array):
 	counter = 0
@@ -21,7 +21,17 @@ def BubbleSort(array):
 	return counter
 
 def main():
-  print("number of comparisons: " + str(BubbleSort([1, 2, 3, 4, 5, 6, 7])))
+	CLI=argparse.ArgumentParser()
+	CLI.add_argument(
+	  "--array",  # name on the CLI - drop the `--` for positional/required parameters
+	  nargs="*",  # 0 or more values expected => creates a list
+	  type=int,
+	  default=[0],  # default if nothing is provided
+	)
+
+	# parse the command line
+	args = CLI.parse_args()
+	print("number of comparisons: " + str(BubbleSort(args.array)))
   
 if __name__== "__main__":
   main()
