@@ -19,6 +19,7 @@ def RevisedBubbleSort(array):
 			counter+=1	
 			j += 1
 		if done == True:
+			#print(i + 1)
 			break
 		i += 1
 
@@ -26,7 +27,7 @@ def RevisedBubbleSort(array):
 	return counter
 
 def main():
-  	CLI=argparse.ArgumentParser()
+	CLI=argparse.ArgumentParser()
 	CLI.add_argument(
 	  "--array",  # name on the CLI - drop the `--` for positional/required parameters
 	  nargs="*",  # 0 or more values expected => creates a list
@@ -37,6 +38,8 @@ def main():
 	# parse the command line
 	args = CLI.parse_args()
 	print("number of comparisons: " + str(RevisedBubbleSort(args.array)))
-  
+  	
+
+
 if __name__== "__main__":
   main()
